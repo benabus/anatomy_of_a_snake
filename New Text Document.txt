@@ -1,0 +1,29 @@
+ 	img, div, input { behavior: url("iepngfix/iepngfix.htc") }
+ 
+ 
+ 
+	#snake_container
+	{
+		position: relative;
+		border: solid black 1px;
+		width: 600px;
+		height: 510px;
+	}
+	#snake_container img
+	{
+		position: absolute;
+	}
+	#text
+	{
+		float: right;
+		width: 350px;
+		height: 510px;
+		overflow: auto;
+		border: solid black 1px;
+		
+	}
+	#content
+	{
+		display: none;
+	}
+ 

@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<title>Anatomy of a Snake</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--Fireworks CS3 Dreamweaver CS3 target.  Created Tue Jul 21 21:25:54 GMT-0400 (Eastern Daylight Time) 2009-->
+	<script type="text/javascript" src="mootools-1.2.3-core-yc.js"></script>
+	<script type="text/javascript">
+		window.addEvent('load', function(){
+			
+			$$("#interface_container").setStyle("display", "block");
+			$$("#loader").setStyle("display", "none");
+			
+			var rollover_pause = "";
+			var clicked = location.hash.substr(1);
+			set_clicked();
+						
+			function hotspot_rollover() {
+					clear_snake();
+					$$("#content img").setStyle("display", "none");
+					$$("#content #image_" + $$(this).get('alt')).setStyle("display", "block");
+					$$("#list #list_" + $$(this).get('alt') + " a").setStyle("font-weight", "bold");
+					$$("#content #image_" + clicked).setStyle("display", "block");
+					$$("#faded_snake").setStyle("display", "block");
+					set_clicked();
+			}
+			 
+			function hotspot_rollout() {
+					
+					clear_snake();
+									
+					$$("#list #list_" + clicked + " a").setStyle("font-weight", "bold");
+					$$("#list #list_" + clicked + " .underline").setStyle("display", "block");
+					$$("#content #image_" + clicked).setStyle("display", "block");
+					set_clicked();
+			}
+			
+			function clear_snake()
+			{
+				$$("#description div").setStyle("display", "none");
+				$$("#content img").setStyle("display", "none");
+				$$("#list .underline").setStyle("display", "none");
+				$$("#list a").setStyle("font-weight", "normal");
+				$$("#faded_snake").setStyle("display", "none");
+			}
+			
+			function set_clicked()
+			{
+				$$("#list #list_" + clicked + " a").setStyle("font-weight", "bold");
+				$$("#list #list_" + clicked + " .underline").setStyle("display", "block");
+				$$("#content #image_" + clicked).setStyle("display", "block");
+				$$("#description #content_" + clicked).setStyle("display", "block");
+				if(clicked != "") $$("#faded_snake").setStyle("display", "block");
+				if(clicked == "") $$("#content_instructions").setStyle("display", "block");
+			}
+			
+			$$("#clear, h1").addEvents({
+				'click' : function(){
+					clear_snake();
+					clicked = "";
+					location.href="#";
+					set_clicked();
+				$$("#description").scrollTo(0,0);
+					return false;
+				}
+			});
+			
+			$$('area, #list a').addEvents({
+				'mouseover': function(){
+					$clear(rollover_pause);
+					var delay = "";
+					delay = 50;
+					rollover_pause = hotspot_rollover.delay(delay, this);
+				},
+				'mouseout' : function(){
+					
+					$clear(rollover_pause);
+					rollover_pause = hotspot_rollout.delay(200, this);
+					
+				},
+				'click' : function() {
+					clear_snake();
+					clicked = $$(this).get('alt');
+					set_clicked();
+					$(this).blur();
+					$$("#description").scrollTo(0,0);
+					location.href = "#" + clicked;
+				}
+			});
+			
+			$$('a.internal').addEvents({
+				'click': function(){
+						
+					clear_snake();
+					clicked = $(this).get('href').substr(1);
+					set_clicked();
+					location.href = "#" + clicked;
+					$(this).blur();
+					$$("#description").scrollTo(0,0);
+				
+				}
+			});
+			
+		});
+	
+	</script>
+	<link rel="stylesheet" href="snake_styles.css" />
+	</head>
+	<body bgcolor="#ffffff">
+		<h1><a href="#">Anatomy of a Snake</a></h1>
+		<div id="loader">	
+			<img id="ajax_loader" src="images/ajax-loader.gif" />	
+			<br />
+			LOADING	
+		</div>
+		<div id="interface_container">
+			<div id="list">
+				<div class="list_container" id="list_sweetmullet" >
+					<div class="underline">&nbsp;</div>
+					<a href="#sweetmullet" alt="sweetmullet">Sweet Mullet</a>
+				</div>
+				<div class="list_container" id="list_bandana" >
+					<div class="underline">&nbsp;</div>
+					<a href="#bandana" alt="bandana">Bandana</a>
+				</div>
+				<div class="list_container" id="list_eyepatch" >
+					<div class="underline">&nbsp;</div>
+					<a href="#eyepatch" alt="eyepatch">Eyepatch</a>
+				</div>
+				<div class="list_container" id="list_manlybeard" >
+					<div class="underline">&nbsp;</div>
+					<a href="#manlybeard" alt="manlybeard">Manly Beard</a>
+				</div>
+				<div class="list_container" id="list_shirt" >
+					<div class="underline">&nbsp;</div>
+					<a href="#shirt" alt="shirt">Jacket</a>
+				</div>
+				<div class="list_container" id="list_throatmic" >
+					<div class="underline">&nbsp;</div>
+					<a href="#throatmic" alt="throatmic">Throat Microphone</a>
+				</div>
+				<div class="list_container" id="list_cqcknife" >
+					<div class="underline">&nbsp;</div>
+					<a href="#cqcknife" alt="cqcknife">CQC Knife</a>
+				</div>
+				<div class="list_container" id="list_pptvox" >
+					<div class="underline">&nbsp;</div>
+					<a href="#pptvox" alt="pptvox">PTPT/VOX switchbox</a>
+				</div>
+				<div class="list_container" id="list_harness" >
+					<div class="underline">&nbsp;</div>
+					<a href="#harness" alt="harness">STABO Harness</a>
+				</div>
+				<div class="list_container" id="list_undershirt" >
+					<div class="underline">&nbsp;</div>
+					<a href="#undershirt" alt="undershirt">Undershirt</a>
+				</div>
+				<div class="list_container" id="list_gloves" >
+					<div class="underline">&nbsp;</div>
+					<a href="#gloves" alt="gloves">Gloves</a>
+				</div>
+				<div class="list_container" id="list_pants" >
+					<div class="underline">&nbsp;</div>
+					<a href="#pants" alt="pants">Trousers</a>
+				</div>
+				<div class="list_container" id="list_pistolbelt" >
+					<div class="underline">&nbsp;</div>
+					<a href="#pistolbelt" alt="pistolbelt">Belt</a>
+				</div>
+				<div class="list_container" id="list_ammopouches" >
+					<div class="underline">&nbsp;</div>
+					<a href="#ammopouches" alt="ammopouches">Ammo Pouches</a>
+				</div>
+				<div class="list_container" id="list_canteen" >
+					<div class="underline">&nbsp;</div>
+					<a href="#canteen" alt="canteen">Canteen</a>
+				</div>
+				<div class="list_container" id="list_buttpack" >
+					<div class="underline">&nbsp;</div>
+					<a href="#buttpack" alt="buttpack">Butt Pack</a>
+				</div>
+				<div class="list_container" id="list_radio" >
+					<div class="underline">&nbsp;</div>
+					<a href="#radio" alt="radio">Radio</a>
+				</div>
+				<div class="list_container" id="list_holster" >
+					<div class="underline">&nbsp;</div>
+					<a href="#holster" alt="holster">M1911A1 .45 Pistol and Holster</a>
+				</div>
+				<div class="list_container" id="list_kneebrace" >
+					<div class="underline">&nbsp;</div>
+					<a href="#kneebrace" alt="kneebrace">Knee Brace</a>
+				</div>
+				<div class="list_container" id="list_survivalknife" >
+					<div class="underline">&nbsp;</div>
+					<a href="#survivalknife" alt="survivalknife">Survival Knife</a>
+				</div>
+				<div class="list_container" id="list_boot" >
+					<div class="underline">&nbsp;</div>
+					<a href="#boot" alt="boot">Boots</a>
+				</div>
+			</div>
+			
+			<div id="snake_container">
+				<img name="snake" src="images/snake.png" width="600" height="510" border="0" id="snake" title="" />
+				<img name="faded_snake" src="images/faded_snake.png" width="600" height="510" border="0" id="faded_snake" title="" />
+				<div id="content">
+					<img src="images/ammopouches.png" id="image_ammopouches" />
+					<img src="images/bandana.png" id="image_bandana" />
+					<img src="images/bdu.png" id="image_bdu" />
+					<img src="images/shirt.png" id="image_shirt" />
+					<img src="images/pants.png" id="image_pants" />
+					<img src="images/boot.png" id="image_boot" />
+					<img src="images/buttpack.png" id="image_buttpack" />
+					<img src="images/canteen.png" id="image_canteen" />
+					<img src="images/clear.png" id="image_clear" />
+					<img src="images/cqcknife.png" id="image_cqcknife" />
+					<img src="images/eyepatch.png" id="image_eyepatch" />
+					<img src="images/gloves.png" id="image_gloves" />
+					<img src="images/harness.png" id="image_harness" />
+					<img src="images/holster.png" id="image_holster" />
+					<img src="images/kneebrace.png" id="image_kneebrace" />
+					<img src="images/manlybeard.png" id="image_manlybeard" />
+					<img src="images/pistolbelt.png" id="image_pistolbelt" />
+					<img src="images/pptvox.png" id="image_pptvox" />
+					<img src="images/radio.png" id="image_radio" />
+					<img src="images/snake.png" id="image_snake" />
+					<img src="images/survivalknife.png" id="image_survivalknife" />
+					<img src="images/sweetmullet.png" id="image_sweetmullet" />
+					<img src="images/throatmic.png" id="image_throatmic" />
+					<img src="images/undershirt.png" id="image_undershirt" />	
+					<img src="images/package.png" id="image_package" />	
+				</div>
+				<img name="clear" src="images/clear.png" width="600" height="510" border="0" id="clear" usemap="#m_snake2" title="" />
+			</div>
+			<div id="description">
+				<div id="content_instructions">
+					<h2>
+						Click on an item to get more info.
+					</h2>
+				</div>
+				<div id="content_ammopouches">
+					<h2>
+						M-1956 Small Arms Ammunition case
+					</h2>
+					<p>
+						Part of the M-1956 Load-Carrying Equipment system. 
+					</p>
+					<p>
+						In 1956 the US Army employed several types of cartridge belts for soldiers armed with the M1 Garand, 
+						BAR belts for those armed with the M1918 Browning Automatic Rifle, 3- and 5-cell pockets for those armed
+						with sub-machine guns, a pocket for 15 round M1 Carbine and M2 magazines, and two different pockets 
+						for the 30 round magazines, in addition to 2- and 3-cell grenade pouches.
+					</p>
+					<p>
+						The M1956 Small Arms Ammunition 
+						case sought to replace all of these with a pair of simple pouches capable of holding a bandoleer of M1 
+						Garand clips (5 total), 2 BAR magazines, 4 30-round carbine magazines, in addition to two grenades each. 
+						The equipment came at a time when the M14 Rifle was being tested, and the ammunition pouch was thus also 
+						designed to hold 3 20-round M14 magazines. 
+					</p>
+					<p>
+						The cases were 
+						issued in pairs and worn at the front of the belt on either side of the buckle. Like all other M1956 
+						equipment they were constructed of heavy canvas. The top flap was closed by means of a metal eyelet and 
+						cloth tab closure. Early models featured a steel plate at the front both to maintain rigidity and to protect
+						the ammunition. Two hand grenades of any type in the US arsenal could be attached on either side of each 
+						pouch, with the spoon hooked through a web strap and another web strap with snap-closure wrapped around the
+						top. 
+					</p>
+					<p>
+						Like other pouches in the system, the ammunition pouches each attached to the web belt with a pair of 
+						slide keepers and, uniquely, an adjustable length strap with a closable hook which connected to the rectangular
+						hook on the suspenders, intended to keep the case upright and transfer some of the weight directly to the shoulders.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M-1956_Load-Carrying_Equipment#Small_Arms_Ammunition_Case" target="_blank" title="External Link">Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_m1956_webgear.php" title="External Link" target="_blank">M1965 Web gear @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=34" title="External Link" target="_blank">M1956 Ammo Pouches @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					
+				</div>
+				<div id="content_bandana">
+					<h2>
+						Bandana
+					</h2>
+					<p>
+						This is just a piece of greenish cloth wrapped around the head.
+					</p>
+					<p>
+						Besides looking super bad-ass, Snake wears his bandana low on his brow to keep the sun and his own sweat out of his eyes.  He is also seen to use his bandana as a impromptu sling for a broken arm.
+					</p>
+					<p>
+						Snake acquired his bandana from his former mentor, The Boss, before she defected to the Soviet Union.
+					</p>
+				</div>
+				<div id="content_shirt">
+					<h2>
+						Tropical Combat Jacket
+					</h2>
+					<p>
+						In the early 1960s, the Army Utility Uniform was the standard issue field uniform.	In 1964, Army special forces in Vietnam were issued the Tropical Combat Uniform, 
+						an enhanced uniform made of lighter weight fabric for tropical environments. 
+					</p>
+					<p>
+						Snake's uniform seems to be an even further enhanced version.  In 1964, the Tropical Combat Jacket had epaulets which are not present on Snake's uniform.  These
+						loops were not removed from the TCJ until 1966.  Additionally, the TCJ featured four bellow pockets on the front, whereas Snake's only has two, like the Utility
+						Jacket. Snake's jacket also includes a pocket on the left shoulder which is not present in any of the uniforms of the time.
+					</p>
+					<h3>
+						Camouflage
+					</h3>
+					<p>
+						Uniforms in the era were primarily Olive-Drab in color.  During the Vietnam War, the Tiger Stripe pattern and later, the ERDL patterns were used.  In Metal Gear
+						Solid 3, however, Snake uses a variety of real and fictional camouflage patterns from various time periods.
+					</p>
+					<p>
+						See Also:
+					</p>
+					<p class="resources">
+						<a href="#pants" class="internal">Tropical Combat Trousers</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/equipment.aspx?cat=2" title="External Link" target="_blank">Uniforms @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_clothing_1960-1970s.php" title="External Link" target="_blank">1960s Army Uniforms @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_package">
+					<h2>
+						Stealth Package
+					</h2>
+					<p>
+						Use of the <a href="#harness" class="internal">STABO harness</a> would seem to accentuate the groin of the user.  Snake, however, has managed to defeat
+						this bulge through unknown means. 
+					</p>
+				</div>
+				<div id="content_pants">
+					<h2>
+						Tropical Combat Trousers
+					</h2>
+					<p>
+						In the early 1960s, the Army Utility Uniform was the standard issue field uniform.	In 1964, Army special forces in Vietnam were issued the Tropical Combat Uniform, 
+						an enhanced uniform made of lighter weight fabric for tropical environments. 
+					</p>
+					<p>
+						The Tropical Combat Trousers feature two slash side pockets, two rear hip pockets, and, unlike the Utility Trousers, two bellow cargo pockets.  
+					
+					</p>
+					<h3>
+						Camouflage
+					</h3>
+					<p>
+						Uniforms in the era were primarily Olive-Drab in color.  During the Vietnam War, the Tiger Stripe pattern and later, the ERDL patterns were used.  In Metal Gear
+						Solid 3, however, Snake uses a variety of real and fictional camouflage patterns from various time periods.
+					</p>
+					<p>
+						See Also:
+					</p>
+					<p class="resources">
+						<a href="#shirt" class="internal">Tropical Combat Jacket</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/equipment.aspx?cat=2" title="External Link" target="_blank">Uniforms @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_clothing_1960-1970s.php" title="External Link" target="_blank">1960s Army Uniforms @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_boot">
+					<h2>
+						Jungle Boots
+					</h2>
+					<p>
+						In the early 1960s, a jungle boot incorporating most of the improvements developed since the end of World War II was issued to U.S. 
+						forces personnel during the Vietnam War. In the improved boot, the upper was made of cotton canvas duck, with leather for the toe 
+						and heel, and nylon reinforcements for the neck of the boot. 
+					</p>
+					<p>
+						The new Jungle boot originally used a Vibram-type lugged composition 
+						rubber sole strongly vulcanized to the leather toe and heel. Water drains (screened eyelets) were added to the canvas top near the 
+						sole to quickly drain water from the inside of the boot. Removable ventilating insoles made of fused layers of Saran plastic screen, 
+						first invented in 1942, were later adopted for the issue Jungle boot. The insoles trapped air which was circulated throughout the 
+						interior of the boot during the act of walking; moist interior air was exchanged for outside air using the water drain eyelets.
+					</p>
+					<p>
+						After numerous widely-reported incidents of foot injuries to U.S. forces caused by punji stake traps, issue Jungle boots were fitted with a stainless steel 
+						plate inside the boot's sole to protect the wearer from punji stake traps. Later Jungle boots were given nylon canvas tops in place of cotton duck.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/Jungle_boots" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/equipment.aspx?cat=6" title="External Link" target="_blank">Footwear @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_jungle_boots.php" title="External Link" target="_blank">Jungle Boots @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					
+				</div>
+				<div id="content_buttpack">
+					<h2>
+						M1961 Combat Field Pack aka Butt Pack
+					</h2>
+					<p>
+						Part of the M-1956 Load-Carrying Equipment system.
+					</p>
+					<p>
+						The Field Pack was a square canvas pouch, just larger than a foot square, designed to hold a single day's Meal, 
+						Combat, Individual (C-Ration) as well as sparse personal implements like a shaving kit and extra socks, The bed 
+						roll was attached externally. The Field Pack's placement at the rear of the pistol-belt
+						led to it being referred to colloquially as the "butt pack." The first pattern featured a square top flap which 
+						closed with a pair of web straps and friction buckles. 
+					</p>
+					<p>
+						This design was modified slightly in the 1961-pattern Field 
+						Pack. Common features of both including canvas construction, attachment to the pistol belt 
+						with two slide keepers and a pair of eyelets at the top of the pack for attaching the individual suspenders directly
+						to the pack in order to keep it upright and help distribute weight to the shoulders. Both also included a web handle
+						at the top for hand-carriage, web strap along the side with eyelets for the attachment of equipment with either
+						slide keepers or wire hangers, and a pair of web straps at the bottom of the pack for attaching items like the poncho 
+						and poncho liner. Both also featured a clear plastic window on the inner side of the pack for inserting a card 
+						with name and service number, as well as cloth-taped edges.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M-1956_Load-Carrying_Equipment#Field_Pack" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources: 
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_m1956_webgear.php" title="External Link" target="_blank">M1956 Web gear @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=20" title="External Link" target="_blank">M1961 Combat Field Pack @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_canteen">
+					<h2>
+						Canteen and M1956 Canteen Cover
+					</h2>
+					<p>
+						Part of the M-1956 Load-Carrying Equipment system.
+					</p>
+					<p>
+						With the adoption of the M1956 equipment, the older M1910 1-quart aluminum canteen and WWII-production steel canteens remained 
+						in service well into the 1960s, later replaced by a plastic variant introduced in 1962. Both were of similar dimensions and slightly
+						curved to sit comfortably on the hip. 
+					</p>
+					<p>
+						As a result the M1956 canteen cover was not fundamentally different from the earlier models with 
+						the exception of the use of two slide keepers in lieu of a wire hanger and metal snaps for closure instead of lift-the-dot fasteners. 
+						Constructed of heavy canvas with cloth-taped edges the M1956 canteen cover had a synthetic wool felt lining for insulation, and was 
+						slightly oversized to accommodate both a canteen and the metal canteen cup in which it nested. 
+					</p>
+					<p>
+						Typically canteen covers also demonstrate the most visible signs of age, fading easily due to continuous wetting and drying. 
+						Originally a single canteen and cover was issued and worn either on the belt between the Small Arms Ammunition Case at the front and 
+						the Field Pack at the rear, or mounted on the side of the Field Pack. Troops in Vietnam generally wore two or more canteens, 
+						and this practice largely continued after the war, as, with the adoption of larger complementary rucksacks, 
+						Entrenching Tools often migrated to attachment points on the rucksack, freeing space on the pistol belt for another canteen.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M-1956_Load-Carrying_Equipment#Canteen_Cover" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources: 
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_canteen.php" title="External Link" target="_blank">Canteen @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=18" title="External Link" target="_blank">Canteen @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=17" title="External Link" target="_blank">Canteen Cover @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_cqcknife">
+					<h2>
+						CQC Knife
+					</h2>
+					<p>
+						A plain, generic fighting knife with a cord wrapped handle.
+					</p>
+					<p>
+						Snake uses his CQC knife in combination with a hand gun while using CQC - a close quarters combat fighting style.
+					</p>
+					<p>
+						While MGS3 states that CQC was developed by Snake and The Boss, it is based on an actual fighting style developed after WWII by William E. Fairbairn and 
+						Eric A. Sykes.  
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.imsplus.com/commando-defender-personal-combat-knife.html" title="External Link" target="_blank">Simliar styled knife at IMS Plus</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Combatives" title="External Link" target="_blank">General Military Hand-to-Hand Combat @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Defendu" title="External Link" target="_blank">Fairbairn and Sykes's Devendu @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_eyepatch">
+					<h2>
+						Eyepatch
+					</h2>
+					<p>
+						Eyepatches have been used by pilots and sailors throughout history to maintain their night 
+						vision during the day or while in a brightly lit situation.  They are also used to cover a
+						scarred or missing eye. 
+					</p>
+					<p>
+						Snake was blinded after a near miss from a <a href="http://en.wikipedia.org/wiki/Single_Action_Army" target="_blank" title="external link">Colt Single Action Army</a><a title="external link">&sup1;</a>. 
+					</p>
+				</div>
+				<div id="content_gloves">
+					<h2>
+						M1949 Glove Shells aka "Recon Gloves"
+					</h2>
+					<p>
+						The M1949 Glove Shells were black leather gloves which were supposed to be worn with wool knit glove inserts. 
+					</p>
+					<p>
+						They earned their nickname of "Recon Gloves" due to their popularity with reconnaissance troops.  Soldiers would often 
+						cut the index finger and thumb off of the gloves for a better feel of their equipment and weapons. 
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_gloves_recon.php" title="External Link" target="_blank">Recon Gloves @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=80" title="External Link" target="_blank">M1949 Glove Shells @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_harness">
+					<h2>
+						STABO Harness
+					</h2>
+					<p>
+						The STABO is an airborne military equipment for abseiling. The rig was developed at the MAC-V Recondo School in Vietnam, to allow 
+						the rapid extraction of reconnaissance personnel by helicopter. 
+					</p>
+					<p>
+						Equipped with a standard <a href="#pistolbelt" class="internal">pistol belt</a>, the harness was also designed in part to replace the M1956 / M1967 Load Carrying Suspenders. 
+						The STABOs leg straps were folded up and secured by tape or rubber bands against shoulder straps until needed.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/STABO" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=661" title="External Link" target="_blank">STABO Harness @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_holster">
+					<h2>
+						M1911A1 .45 Automatic Pistol and M1916 .45 Pistol Holster
+					</h2>
+					<h3>
+						M1911A1 .45 Automatic Pistol
+					</h3>
+					<p>
+						The M1911 is a single-action, semi-automatic pistol (handgun) chambered for the .45 ACP cartridge. 
+						It was designed by John M. Browning, and was the standard-issue side arm for the United States armed forces
+						from 1911 to 1985, and is still carried by some U.S. forces. It was widely used in World War I, World War 
+						II, the Korean War and the Vietnam War. Its formal designation as of 1940 was Automatic Pistol, Caliber .45, 
+						M1911 for the original Model of 1911 or Automatic Pistol, Caliber .45, M1911A1 for the M1911A1, adopted in 1924. 
+						The designation changed to Pistol, Caliber .45, Automatic, M1911A1 in the Vietnam era. In total, the United States
+						procured around 2.7 million M1911 and M1911A1 pistols during its service life.
+					</p>
+					<p>
+						The M1911 is the most well-known of John Browning's designs to use the short recoil principle in its 
+						basic design. Besides the pistol being widely copied itself, this operating system rose to become the 
+						pre-eminent type of the 20th century and of nearly all modern centerfire pistols.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M1911A1" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_other_firearms_pistol_m1911.php3" title="External Link" target="_blank">M-1911 .45 Automatic Pistol @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<h3>
+						M1 (M1916) .45 Pistol Holster
+					</h3>
+					<p>
+						A black leather holster with wire hanger, for the M1911A1 .45 caliber pistol.  The wire hanger would fit into the eyelets of the <a href="#pistolbelt" class="internal">pistol belt</a>. 
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M1911A1" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=661" title="External Link" target="_blank">STABO Harness @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					
+				</div>
+				<div id="content_kneebrace">
+					<h2>
+						Knee Brace
+					</h2>
+					<p>
+						This is just a simple elastic knee brace.  It helps support Snake's knee from the stress that special operations put on a fellow.  
+					</p>
+					<p>
+						More importantly, it just looks really freakin' cool.
+					</p>
+				</div>
+				<div id="content_manlybeard">
+					<h2>
+						Manly Beard
+					</h2>
+					<p>
+						Army regulations are generally strict about facial hair, only allowing a neatly trimmed mustache.
+					</p>
+					<p>
+						An exception is made for Special Forces operations where the soldiers need to fit in with the local
+						culture (such as Afganistan and Iraq) or when the operation leaves little time for proper grooming
+						practices (as with the <a href="#sweetmullet" class="internal">sweet mullet</a>). 
+					</p>
+				</div>
+				<div id="content_pistolbelt">
+					<h2>
+						M1956 Individual Equipment Belt (Pistol Belt)
+					</h2>
+					<p>
+						This was part of the M-1956 Load-Carrying Equipment system.
+					</p>
+					<p>
+						The M-1956 LCE continued the traditional fighting load concept of an individual equipment belt supported 
+						by individual equipment belt suspenders. It differed from previous United States military designs, however, 
+						by relying on a single individual equipment belt for soldiers armed with all small arms as opposed to three 
+						separate individual equipment belts; the M-1936 individual equipment belt, the M-1923 cartridge belt for the 
+						Rifle, Caliber .30, M1, and the M-1937 cartridge belt for the Rifle, Caliber .30, Automatic, M1918. 
+					</p>
+					<p>
+						The olive 
+						drab U.S. Army Shade 7 cotton canvas Belt, Individual Equipment is manufactured to United States military 
+						specification MIL-B-40158 and is produced in two sizes: Medium, for waists under 30-inches [FSN 8465-577-4925], 
+						and Large, for waists over 30-inches [FSN 8465-577-4924]. Earlier production individual equipment belts feature 
+						a horizontal canvas weave while later patterns feature a vertical weave. It is secured by means of a brass hook 
+						and loop buckle and has two rows of eyelets along the top and bottom for attaching individual equipment 
+						utilizing the M-1910 wire hanger. There is a center row of smaller eyelets utilized for adjusting the size of 
+						the individual equipment belt.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/M-1956_Load-Carrying_Equipment#Individual_Equipment_Belt_.26_Individual_Equipment_Belt_Suspenders" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_soldiers_gear_m1956_webgear.php" title="External Link" target="_blank">M1965 Web Gear @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=33" title="External Link" target="_blank">M1965 Individual Equipment Belt @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_pptvox">
+					<h2>
+						PTT / VOX switch box
+					</h2>
+					<p>
+						This is a component in Snake's communication gear.  It allows Snake to change his radio from Push To Talk (PTT) to Voice Operated (VOX) transmission. 
+					</p>
+					<p>
+						The voice operated mode allows Snake to communicate with his support team while operating, while the PTT mode allows him to contact his team directly,
+						in a more controlled manner.
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Voice_operated_switch" title="External Link" target="_blank">VoX @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Push_to_talk" title="External Link" target="_blank">PTT @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_radio">
+					<h2>
+						Portable Radio
+					</h2>
+					<p>
+						This is the radio that Snake uses to communicate with his support team.  It is connect to a <a href="#pptvox" class="internal">PTT/VOX switch box</a>
+						and a <a href="#throatmic" class="internal">throat microphone and earphone</a>.
+					</p>
+					<p>
+						The radio appears to be similiar to an AN/PRC-90 Survival Radio, with the main difference being the number of channels that can be accessed.  The PRC-90
+						can only send and recieve on two frequencies, but Snake's radio can tune to a range of frequencies to contact his support members individually.
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://www.olive-drab.com/od_electronics_anprc90.php" title="External Link" target="_blank">AN/PRC-90 Radios @ Olive-Drab</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.nj7p.org/history/90prc.html" title="External Link" target="_blank">The AN/PRC-90 Legacy</a><a title="External Link">&sup1;</a>
+					</p>
+				</div>
+				<div id="content_survivalknife">
+					<h2>
+						Air Force Survival Knife
+					</h2>
+					<p>
+						The Air Force survival knife was used extensively by the Airforce and by Special Forces.  It has a 5 inch fixed blade with a saw back and a leather washer handle.
+						Its leather sheath has a pocket for a sharpening stone.						
+					</p>
+					<p>
+						While the sheath has belt loops and eyelets for tie downs, Snake has it simply strapped to his leg.
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://ontarioknife.com/milissue.html" title="External Link" target="_blank">The Ontario Knife Company's Military knives page</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://www.vietnamgear.com/kit.aspx?kit=206" title="External Link" target="_blank">Aircrew Survival Knife @ VietnamGear.com</a><a title="External Link">&sup1;</a>
+					</p>
+					
+				</div>
+				<div id="content_sweetmullet">
+					<h2>
+						Sweet Mullet
+					</h2>
+					<p>
+						Work in the front; party in the back.  The Mullet is a hair style that is cropped short in the front and sides,
+						but grown longer in the back. 
+					</p>
+					<p>
+						Snake doesn't technically have a mullet.  His longish hair is probably the result of an overgrown buzz cut caused 
+						by long missions in conditions that did not allow for proper grooming (which could also account for the <a href="#manlybeard" class="internal">manly beard</a>).  
+					</p>
+					<p>
+						His <a class="internal" href="#bandana" >bandana</a> pulls the sides close to his head resulting in a more defined mullet-ish look.
+					</p>
+					<p>
+						 This particular sweet mullet is less redneck and more MacGyver.
+					</p>
+				</div>
+				<div id="content_throatmic">
+					<h2>
+						Throat Microphone
+					</h2>
+					<p>
+						A throat microphone, also laryngophone, is a type of microphone that picks up sound directly through sensors in 
+						contact with the neck. Because of this design, it is able to pick up speech in loud environments such as on a 
+						motorcycle or in a night club where other types of microphones would not function well because the speech would be 
+						drowned out by background noise. This type of microphone is also able to pick up whispers and works well in an 
+						environment where one has to keep quiet while communicating with others at a distance such as during a covert military 
+						operation. Throat microphones were also extensively used in World War II-era aircraft, and by German tank crews.
+					</p>
+					<p class="source">
+						Source: <a href="http://en.wikipedia.org/wiki/Throat_microphone" title="External Link" target="_blank">Wikipedia</a>
+					</p>
+				</div>
+				<div id="content_undershirt">
+					<h2>
+						CQC Undershirt
+					</h2>
+					<p>
+						Snake's primary undergarment is a compression suit probably made similar to a wetsuit.  As a multi-environmental operative,
+						it makes sense for snake to wear such a garment to protect him from the changing weather, especially in wetlands.
+					</p>
+					<p>
+						In addition, the snug fit would reduce muscle fatigue in a manner similar to modern compression sportswear. 
+					</p>
+					<p>
+						Additional Resources:
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Compression_sportswear" title="External Link" target="_blank">Compression Sportswear @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+					<p class="resources">
+						<a href="http://en.wikipedia.org/wiki/Wetsuit" title="External Link" target="_blank">Wetsuits @ Wikipedia</a><a title="External Link">&sup1;</a>
+					</p>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<map name="m_snake2" id="m_snake2">
+			<area shape="poly" coords="158,95,163,98,171,99,174,97,182,97,185,96,181,100,168,109,161,102,158,95" href="javascript:;" alt="undershirt" title="CQC Undershirt" />
+			<area shape="poly" coords="99,185,105,193,113,197,123,198,121,203,116,214,116,221,113,218,105,216,100,214,95,213,97,196,99,185" href="javascript:;" alt="undershirt" title="CQC Undershirt" />
+			<area shape="poly" coords="228,199,236,194,248,191,255,192,257,200,258,213,261,226,261,229,244,230,239,234,237,231,237,222,231,215,228,199" href="javascript:;" alt="undershirt" title="CQC Undershirt" />
+			<area shape="poly" coords="334,193,346,202,339,207,336,212,337,216,342,220,344,225,344,232,335,231,329,228,331,223,331,207,332,199,334,193" href="javascript:;" alt="undershirt" title="CQC Undershirt" />
+			<area shape="poly" coords="466,205,469,216,474,226,473,229,472,229,473,231,474,233,488,234,495,232,500,226,498,223,496,204,496,189,488,189,481,192,472,196,468,199,466,205" href="javascript:;" alt="undershirt" title="CQC Undershirt" />
+			<area shape="poly" coords="420,331,426,333,435,333,448,329,454,329,454,342,454,357,455,366,456,371,454,372,452,382,451,385,433,386,425,386,422,385,422,359,420,343,420,331" href="javascript:;" alt="kneebrace" title="Knee Brace" />
+			<area shape="poly" coords="126,318,132,323,141,325,148,323,160,319,159,328,158,342,156,352,157,359,156,368,145,370,131,368,125,366,125,356,126,343,125,328,126,318" href="javascript:;" alt="kneebrace" title="Knee Brace" />
+			<area shape="poly" coords="427,445,448,444,454,443,458,436,461,432,470,432,475,436,477,439,476,448,474,452,467,455,462,456,459,455,453,458,453,462,446,466,438,466,429,464,430,456,427,448,427,445" href="javascript:;" alt="boot" title="DMS Jungle Boots" />
+			<area shape="poly" coords="353,425,360,427,369,427,379,422,382,420,383,413,385,417,385,425,380,430,374,434,373,441,368,444,361,445,355,444,353,442,354,432,353,427,353,425" href="javascript:;" alt="boot" title="DMS Jungle Boots" />
+			<area shape="poly" coords="202,424,210,425,221,425,228,423,228,433,229,440,231,449,229,454,223,458,214,461,207,459,204,457,203,444,203,428,202,424" href="javascript:;" alt="boot" title="DMS Jungle Boots" />
+			<area shape="poly" coords="125,409,121,414,116,419,115,422,107,430,106,434,105,439,108,442,115,443,123,442,130,440,134,436,134,432,139,427,145,426,148,424,149,414,150,409,125,409" href="javascript:;" alt="boot" title="DMS Jungle Boots" />
+			<area shape="poly" coords="126,371,133,375,143,376,149,376,155,374,154,369,143,370,134,368,125,367,125,348,125,348,124,346,120,346,118,347,118,350,115,350,115,355,119,356,120,371,118,372,119,390,122,396,122,394,133,399,141,400,153,400,153,394,138,393,129,390,125,388,126,371" href="javascript:;" alt="survivalknife" title="Aircrew Survival Knife" />
+			<area shape="poly" coords="425,386,423,390,425,396,435,395,449,395,449,417,444,417,435,418,423,416,425,424,432,428,448,429,450,436,456,441,461,432,461,428,464,427,465,407,463,406,464,403,466,402,466,400,463,400,465,383,467,383,467,377,463,379,464,377,465,375,465,373,460,372,458,373,453,372,452,385,439,385,425,386" href="javascript:;" alt="survivalknife" title="Aircrew Survival Knife" />
+			<area shape="poly" coords="363,197,367,201,366,207,362,211,362,239,363,243,369,246,359,249,350,248,346,243,344,223,341,217,337,216,337,212,344,204,351,200,352,196,356,196,363,197" href="javascript:;" alt="canteen" title="M1910 Canteen and M1910 Canteen Cover" />
+			<area shape="poly" coords="474,233,479,234,487,234,495,231,499,228,498,226,501,227,501,230,501,241,499,250,501,258,501,272,498,274,488,280,477,273,477,268,479,267,479,247,474,233" href="javascript:;" alt="gloves" title="M1949 Glove Shells" />
+			<area shape="poly" coords="328,228,331,231,338,232,345,232,345,240,346,243,344,247,345,250,345,255,343,257,344,261,345,265,342,269,336,269,332,271,327,264,327,258,328,256,328,247,328,241,329,240,327,238,327,230,328,228" href="javascript:;" alt="gloves" title="M1949 Glove Shells" />
+			<area shape="poly" coords="240,232,244,230,256,230,263,230,263,239,263,246,264,251,264,256,267,267,267,272,263,279,259,278,260,274,255,275,248,271,248,267,245,266,247,258,247,256,248,252,241,244,238,238,240,232" href="javascript:;" alt="gloves" title="M1949 Glove Shells" />
+			<area shape="poly" coords="94,213,100,214,111,217,116,220,111,231,109,240,111,244,111,254,107,253,107,250,101,249,101,258,96,261,92,257,88,258,89,245,91,241,93,217,94,213" href="javascript:;" alt="gloves" title="M1949 Glove Shells" />
+			<area shape="poly" coords="226,200,228,199,229,214,233,221,233,225,232,237,229,243,226,244,219,243,214,237,224,233,226,200" href="javascript:;" alt="canteen" title="M1910 Canteen and M1910 Canteen Cover" />
+			<area shape="poly" coords="169,189,170,200,171,203,171,226,178,238,193,238,198,230,199,207,203,205,202,227,204,229,214,237,224,233,226,219,226,200,223,192,216,186,212,187,207,191,195,186,175,186,169,189" href="javascript:;" alt="ammopouches" title="M1956 Ammunition Pouch" />
+			<area shape="poly" coords="149,199,169,200,172,203,172,216,164,217,152,217,149,199" href="javascript:;" alt="pistolbelt" title="M1956 pistol belt" />
+			<area shape="poly" coords="128,191,135,193,140,207,141,218,138,226,136,243,136,254,133,256,129,255,127,246,126,225,123,220,120,204,122,197,128,191" href="javascript:;" alt="holster" title="M1911A1 .45 Semi Automatic Pistol and M1916 .45 Pistol Holster" />
+			<area shape="poly" coords="459,195,462,202,466,205,465,218,463,226,459,232,455,263,451,265,448,249,448,246,455,245,454,235,454,217,455,210,458,205,459,195" href="javascript:;" alt="holster" title="M1911A1 .45 Semi Automatic Pistol and M1916 .45 Pistol Holster" />
+			<area shape="poly" coords="431,207,431,198,433,192,438,185,438,139,439,139,441,184,451,184,459,195,459,206,457,207,455,217,455,237,455,244,432,246,436,236,436,214,431,207" href="javascript:;" alt="radio" title="Portable Radio" />
+			<area shape="poly" coords="426,207,432,208,435,214,436,223,436,235,432,244,428,252,415,254,413,255,409,255,409,254,405,254,402,257,399,256,398,254,399,252,390,252,384,251,382,250,382,251,374,251,374,248,372,247,363,244,362,234,362,220,362,213,366,208,366,204,367,199,378,198,380,197,385,197,385,200,407,200,414,202,421,201,424,203,426,207" href="javascript:;" alt="buttpack" title="M1961 Combat Field Pack aka Butt Pack" />
+			<area shape="poly" coords="389,251,399,252,398,257,402,257,404,254,408,254,405,259,405,265,403,266,397,265,392,257,389,251" href="javascript:;" alt="harness" title="STABO Harness" />
+			<area shape="poly" coords="372,110,372,108,384,103,389,110,391,118,394,126,401,143,407,159,409,159,415,144,421,132,429,121,431,117,442,108,443,111,446,114,449,113,452,111,456,111,456,113,448,117,440,129,432,141,427,154,423,161,416,173,415,178,416,189,416,197,418,201,411,201,394,200,395,193,396,187,399,178,391,155,386,140,382,128,376,114,372,110" href="javascript:;" alt="harness" title="STABO Harness" />
+			<area shape="poly" coords="202,133,214,145,214,149,215,151,214,160,212,161,207,190,200,188,196,188,195,186,200,158,200,156,202,148,202,133" href="javascript:;" alt="harness" title="STABO Harness" />
+			<area shape="poly" coords="203,104,214,108,215,128,207,122,202,120,203,104" href="javascript:;" alt="harness" title="STABO Harness" />
+			<area shape="poly" coords="129,112,142,106,145,107,138,118,137,131,136,141,138,156,139,169,142,177,146,187,148,198,153,221,156,225,157,236,155,239,159,246,167,247,167,252,172,255,179,247,177,244,181,241,186,240,187,238,193,237,199,230,199,225,199,207,204,204,202,223,199,227,196,233,192,238,190,243,195,246,191,251,182,263,180,263,168,264,161,261,157,256,155,256,153,249,154,248,144,229,144,225,139,203,132,180,130,174,127,173,129,159,131,155,132,142,126,134,127,121,127,113,129,112" href="javascript:;" alt="harness" title="STABO Harness" />
+			<area shape="poly" coords="157,92,163,95,169,96,178,95,183,93,186,93,185,96,175,97,170,98,164,98,157,95,157,92" href="javascript:;" alt="throatmic" title="Throat Microphone" />
+			<area shape="poly" coords="118,156,118,143,121,139,124,134,127,135,131,139,132,154,128,159,121,157,118,156" href="javascript:;" alt="pptvox" title="PTT/VOX switchbox" />
+			<area shape="poly" coords="186,113,195,122,194,124,205,136,214,145,220,150,226,151,226,145,224,140,213,127,207,121,201,119,192,110,188,109,186,113" href="javascript:;" alt="cqcknife" title="CQC Knife" />
+			<area shape="poly" coords="425,396,431,394,450,395,450,418,434,418,424,416,425,425,433,428,449,428,451,436,455,440,451,444,439,445,431,445,425,443,424,421,423,408,424,399,425,396" href="javascript:;" alt="pants" title="Tropical Combat Trousers" />
+			<area shape="poly" coords="404,282,409,294,409,304,410,313,419,329,420,332,431,334,452,329,456,323,456,308,455,287,450,267,451,261,448,245,433,244,428,252,416,254,416,254,410,254,409,254,405,260,404,265,400,266,396,265,391,254,390,251,382,250,382,251,374,251,373,248,371,246,366,248,365,254,363,260,358,268,359,273,358,281,354,293,355,301,355,317,352,330,352,349,352,370,351,391,353,401,352,408,351,421,354,425,364,429,373,426,383,419,383,406,388,392,392,372,395,347,399,322,403,305,404,294,404,282" href="javascript:;" alt="pants" title="Tropical Combat Trousers" />
+			<area shape="poly" coords="416,200,425,203,425,207,431,207,432,198,434,191,437,186,438,139,440,138,440,156,441,185,448,184,452,185,456,190,459,195,459,197,464,204,467,205,466,200,479,192,485,189,493,188,497,188,498,186,493,176,492,173,487,159,483,149,480,143,476,135,472,125,466,117,457,113,451,115,443,123,433,140,424,158,414,175,416,200" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="372,109,377,115,383,130,387,143,392,155,397,171,399,179,395,192,394,200,386,199,386,198,379,198,379,199,367,199,368,192,364,194,363,197,355,196,351,197,351,200,346,201,335,194,333,191,337,181,338,177,343,162,342,159,341,156,345,144,347,136,351,133,354,120,358,114,368,110,372,109" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="384,104,389,100,391,96,394,94,394,89,393,88,392,85,405,81,408,84,415,83,416,76,419,83,424,89,429,89,430,91,431,95,438,97,438,101,438,103,441,104,441,107,433,115,426,125,420,136,414,146,409,159,407,159,401,144,393,124,390,112,384,104" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="215,108,226,113,230,117,235,129,236,131,244,156,243,160,250,175,251,178,255,190,255,192,248,191,240,193,231,197,228,199,226,199,223,193,222,189,223,187,217,181,216,186,212,187,207,192,209,183,210,172,212,163,214,161,214,151,212,150,213,145,221,150,225,151,226,150,225,142,221,137,218,133,215,129,215,108" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="125,371,133,375,142,376,155,374,153,392,153,407,149,409,129,410,122,407,123,394,134,400,147,400,153,399,152,394,144,395,133,392,124,387,125,371" href="javascript:;" alt="pants" title="Tropical Combat Trousers" />
+			<area shape="poly" coords="142,218,144,225,143,227,144,231,154,247,152,250,153,252,155,256,157,256,165,263,169,264,176,264,182,263,189,254,192,250,195,247,190,242,190,240,192,239,195,234,199,230,199,227,202,225,202,229,214,237,217,243,218,252,221,265,223,284,225,314,229,337,230,365,231,370,232,400,234,412,235,420,227,424,221,426,209,425,200,423,200,413,194,386,189,365,188,350,186,334,180,314,179,292,178,287,174,279,170,290,166,303,162,311,159,317,159,319,149,323,147,325,136,324,129,320,127,318,125,301,124,292,129,266,129,256,135,256,136,239,138,227,140,219,142,218" href="javascript:;" alt="pants" title="Tropical Combat Trousers" />
+			<area shape="poly" coords="153,218,165,217,168,216,172,216,172,226,175,232,178,237,187,238,186,241,180,240,177,246,178,247,173,255,170,255,167,252,166,247,159,247,155,239,156,235,157,226,156,222,153,221,153,218" href="javascript:;" alt="pants" title="Tropical Combat Trousers" />
+			<area shape="poly" coords="128,112,126,118,126,127,127,133,121,136,121,139,119,142,119,156,122,158,128,158,128,173,131,176,134,184,135,192,131,182,128,187,129,191,125,192,122,198,117,197,109,194,102,190,98,184,97,181,98,177,99,172,102,171,103,163,106,154,111,143,113,135,116,126,121,119,125,115,128,112" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="148,81,150,83,155,82,156,83,159,90,157,91,157,96,162,104,167,109,181,100,185,98,186,94,188,86,189,84,193,88,195,92,194,95,196,97,195,101,203,105,203,121,200,118,195,112,192,110,188,109,188,114,195,122,195,126,203,133,203,147,200,158,197,173,196,187,190,186,183,186,176,186,170,189,170,200,164,199,161,199,152,199,149,198,144,181,139,170,139,157,137,155,136,138,138,121,140,114,143,108,151,102,152,95,151,93,141,91,143,87,146,83,148,81" href="javascript:;" alt="shirt" title="Tropical Combat Jacket" />
+			<area shape="poly" coords="394,54,394,51,395,45,399,44,400,40,404,40,405,39,406,37,408,36,411,35,415,35,420,36,425,35,425,37,430,35,431,38,431,42,434,43,436,45,436,50,437,54,436,55,429,56,424,57,422,54,415,55,402,54,394,54" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="427,78,429,80,432,84,435,85,439,84,439,83,432,78,431,76,427,78" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="396,63,408,63,414,71,416,76,416,82,407,85,407,81,403,81,399,82,394,83,393,84,388,82,388,79,391,78,390,77,386,73,391,68,394,66,396,63" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="190,73,192,72,193,74,198,73,195,76,195,78,196,80,195,83,194,85,188,85,190,80,190,73" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="149,74,151,77,155,79,156,82,154,82,153,81,152,83,151,83,148,79,147,76,149,74" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="150,54,150,49,151,46,153,41,156,41,156,37,164,36,168,36,176,35,180,37,183,39,187,39,192,46,192,49,190,52,185,53,170,54,167,58,163,55,161,54,158,54,150,54" href="javascript:;" alt="sweetmullet" title="Sweet Mullet" />
+			<area shape="poly" coords="154,66,156,75,158,81,160,79,162,82,164,82,167,80,175,79,179,82,182,83,183,83,185,77,187,79,188,72,188,68,188,64,190,63,190,78,188,85,181,92,176,95,169,95,163,92,158,88,156,81,154,66,154,66" href="javascript:;" alt="manlybeard" title="Manly Beard" />
+			<area shape="poly" coords="167,65,167,70,164,73,159,74,155,83,154,82,158,73,158,65,167,65" href="javascript:;" alt="eyepatch" title="Eyepatch" />
+			<area shape="poly" coords="394,53,395,63,396,64,408,64,411,67,415,73,417,78,418,82,424,89,426,90,430,90,431,95,436,96,441,97,442,100,442,103,441,104,441,108,442,106,443,111,447,114,451,112,451,110,447,106,450,105,450,102,447,100,447,98,449,97,443,89,438,85,432,84,428,79,428,77,431,77,433,80,438,79,440,77,440,74,443,72,446,78,450,84,451,81,453,81,453,84,451,86,451,91,457,96,459,96,458,93,456,89,462,88,465,88,467,88,465,85,462,85,459,82,458,83,457,81,459,80,458,78,455,77,455,72,455,69,453,66,446,66,441,69,439,68,435,66,435,64,436,64,436,61,436,55,433,55,428,56,425,57,421,55,416,55,414,54,413,53,410,54,406,55,394,53,394,53" href="javascript:;" alt="bandana" title="Bandana" />
+			<area shape="poly" coords="151,60,144,60,141,58,135,56,131,57,131,61,126,61,125,65,117,65,117,67,125,71,121,74,125,76,129,72,130,67,131,69,138,64,143,67,149,71,150,74,146,77,136,76,135,76,130,80,128,83,124,83,125,85,126,87,122,90,120,92,123,95,131,90,131,85,136,84,134,87,135,88,141,84,144,84,149,81,147,77,150,74,149,64,151,64,153,66,168,66,177,65,185,65,189,63,190,62,191,52,184,54,174,54,170,54,168,58,165,56,163,55,160,54,155,55,150,55,151,60" href="javascript:;" alt="bandana" title="Bandana" />
+		</map>
+		
+		
+		
+		
+		
+	</body>
+</html>

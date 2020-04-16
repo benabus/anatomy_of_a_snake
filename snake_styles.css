@@ -1,0 +1,155 @@
+ 	img, div, input { behavior: url("iepngfix/iepngfix.htc") } 
+ 
+ 	h2
+	{
+		font-size: 120%;		
+	}
+	h3
+	{
+		font-size: 80%;
+		margin-top: 2em;
+		margin-bottom: 0;
+		
+	}
+	#description h2
+	{
+		font-family: monospace;		
+		font-weight: bold;
+	}
+	h1
+	{
+		font-family: monospace;
+		width: 900px;
+		margin: 1em auto -1em auto;
+	}
+	h1 a
+	{
+		text-decoration: none;
+		color: black;
+	}
+	#description p
+	{
+		font-size: 75%;
+		font-family: sans-serif;
+	}
+	#loader
+	{
+		position: absolute;
+		width: 90%;
+		height: 90%;
+		margin: auto auto;
+		text-align: center;
+		z-index: 20;
+		
+	}
+	#loader img
+	{
+		display: block;
+		width: 54px;
+		margin: 200px auto 0 auto;
+	}
+	
+	#description
+	{
+		display: block;
+		position: absolute;
+		width: 270px;
+		top: 10px;
+		margin-left: 620px;
+		height: 490px;
+		overflow: auto;
+		font-family: sans-serif;
+		background: lightgray;
+		border: solid gray 1px;
+		line-height: 150%;
+		
+	}
+	#description div
+	{
+		display: none;
+		margin: 20px;
+	}
+	
+	#description .source
+	{
+		margin-top: -1em;
+		text-indent: 1em;
+	}
+	#description .resources
+	{
+		margin-top: -1em;
+		text-indent: -1em;
+		margin-left: 1em;
+	}
+		
+ 	#interface_container
+	{
+ 		position: relative;
+		display: none;
+		border: solid black 1px;
+		padding-left: 20px;
+		width: 900px;
+		margin: auto auto;
+		margin-top: 20px;
+ 	}
+	
+	#snake_container
+	{
+		position: relative;
+		width: 600px;
+		height: 510px;
+		margin-left: 100px;
+	}
+	
+	#snake_container img
+	{
+		position: absolute;
+	}
+	
+	#list
+	{
+		position: absolute;
+		font-size: 88%;
+		width: 200px;		
+		float: left;
+		padding-top: 20px;
+		
+	}  
+	
+	#list div.list_container
+	{
+			margin-left: 20px;
+			text-indent: -20px;
+			margin-bottom: 6px;
+			font-family: monospace;
+			display: block;
+			color: black;
+			position: relative;
+	}
+	#list a
+	{
+		position: relative;
+		color: black;
+		z-index: 20;
+		text-decoration: none;
+	}
+	#content img, #faded_snake
+	{
+		display: none;
+	}
+	
+	.underline
+	{
+		height: 1em;
+		border-bottom: solid gray 1px;
+		border-left: solid gray 1px;
+		bottom: -2px;
+		position: absolute;
+		display: block;
+		margin-left: -24px;
+		width: 700px;
+		height: 100%;
+		display: none;
+		z-index: 0;
+	}
+ 
